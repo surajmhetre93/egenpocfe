@@ -1,5 +1,55 @@
+header {
+  height:40vh;
+  background-size:cover;
+  background-image: url("./static/header.jpg");
+}
+
+.hidden-spacer {
+  height: 56px
+}
+
+body {
+  color: azure;
+  background-color: #000000;
+  /*background-image: linear-gradient(135deg, #444040 0%, #000000 100%);*/
+}
+
+a {
+  color: azure;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  color: white;
+  background-color: #282c34;
+}
+
+.logo-background {
+  height: 5rem;
+  background-color: azure;
+}
+
+select {
+  background-color: black;
+  margin: 0.35rem;
+  width: 25rem;
+  border-radius: 3px;
+}
+
+button {
+  background-color: black;
+  margin: 0.35rem;
+  border-radius: 3px;
+  border-color: chartreuse;
+  width: max-content;
+}
+
 .App {
-  text-align: center;
+  
 }
 
 .App-logo {

@@ -1,0 +1,1 @@
+export const API_URL = "http://67.186.106.148:8000/pocapp/APIConfig/"
