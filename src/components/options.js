@@ -59,9 +59,9 @@ class Dropdown extends Component {
 			method: 'post',
 			url: API_URL,
 			data: {
-				"project_id": "cparkar-project",
-				"zone": "us-central1-a",
-				"name": "egen-poc-vm"
+				"project_id":"cparkar-project-310718",
+				"location":"US",
+				"bucket_name":"egen-poc-bucket"
 			},
 			headers: { 
 			  "content-type": "application/json"
