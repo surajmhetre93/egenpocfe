@@ -3,6 +3,7 @@ import { Button } from 'reactstrap'
 import axios from 'axios';
 import { API_URL } from "../constants"
 import '../App.css';
+import React, { useState } from 'react';
 
 class Dropdown extends Component {
 	constructor(props) {
@@ -67,7 +68,7 @@ class Dropdown extends Component {
 			  "content-type": "application/json"
 			}
 		}).then(function (response) {
-			console.log(response)
+			return (response.data)
 		}).catch(function (error) {
 			console.log(error)
 		});
