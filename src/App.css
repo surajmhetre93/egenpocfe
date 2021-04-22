@@ -1,7 +1,7 @@
 header {
-  height:40vh;
+  /*height:40vh;*/
   background-size:cover;
-  background-image: url("./static/header.jpg");
+  
 }
 
 .hidden-spacer {
@@ -12,6 +12,7 @@ body {
   color: azure;
   background-color: #000000;
   /*background-image: linear-gradient(135deg, #444040 0%, #000000 100%);*/
+  background-image: url("./static/header-2.jpeg");
 }
 
 a {
@@ -35,17 +36,30 @@ footer {
 
 select {
   background-color: black;
+  opacity: 0.7;
   margin: 0.35rem;
-  width: 25rem;
+  width: 50rem;
+  height: 5rem;
   border-radius: 3px;
 }
 
-button {
+.custom-btn {
   background-color: black;
-  margin: 0.35rem;
+  margin: 2rem;
   border-radius: 3px;
   border-color: chartreuse;
-  width: max-content;
+  width: 50rem;
+  height: 5rem;
+}
+
+.custom-btn:hover {
+  color: antiquewhite;
+  font-weight: bolder;
+  border-width: 2px;
+}
+
+#container {
+  text-align: center;
 }
 
 .App {

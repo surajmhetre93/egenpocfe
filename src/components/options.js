@@ -123,8 +123,8 @@ class Dropdown extends Component {
 					</select>
 				</div>
 
-				<div class="container">
-					<Button onClick = {this.generateConfig}>Submit Process Flow</Button>
+				<div>
+					<Button onClick = {this.generateConfig} variant="primary" className="custom-btn">Submit Process Flow</Button>
 				</div>
 			</div>
 		)
