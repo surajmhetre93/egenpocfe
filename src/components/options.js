@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import { Button } from 'reactstrap'
 import axios from 'axios';
 import { API_URL } from "../constants"
 import '../App.css';
-import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 
 class Dropdown extends Component {
 	constructor(props) {
@@ -18,7 +18,9 @@ class Dropdown extends Component {
             vm_type : [],
             transformation_format : [],
 			selectedCloud : '--Choose cloud platform--',
-			selectedIndustry : '--Choose Industry--'
+			selectedIndustry : '--Choose Industry--',
+			bucket_url: '',
+			show:false
 		};
 		this.changeCloud = this.changeCloud.bind(this);
 		this.changeTypeOfData = this.changeTypeOfData.bind(this);
@@ -53,9 +55,10 @@ class Dropdown extends Component {
 	changeTypeOfData(event) {
 		this.setState({selectedIndustry: event.target.value});
 		this.setState({kinds : this.state.domains.find(stat => stat.name === event.target.value).kinds});
-	}
+	} 
 
 	generateConfig() {
+	
 		axios({
 			method: 'post',
 			url: API_URL,
@@ -67,9 +70,10 @@ class Dropdown extends Component {
 			headers: { 
 			  "content-type": "application/json"
 			}
-		}).then(function (response) {
-			return (response.data)
-		}).catch(function (error) {
+		}).then((response) => {
+			this.setState({bucket_url: response.data[0]});
+			this.setState({show:true})
+		}).catch((error) => {
 			console.log(error)
 		});
 	}
@@ -125,8 +129,14 @@ class Dropdown extends Component {
 				</div>
 
 				<div>
-					<Button onClick = {this.generateConfig} variant="primary" className="custom-btn">Submit Process Flow</Button>
+					<Button onClick = {this.generateConfig.bind(this)} variant="primary" className="custom-btn">Submit Process Flow</Button>
 				</div>
+				
+				<div class="bucket-link">
+					{
+						this.state.show? <span>Goto <a href={this.state.bucket_url}>{this.state.bucket_url}</a> to upload csv data</span> : null
+					}
+          		</div>
 			</div>
 		)
 	}

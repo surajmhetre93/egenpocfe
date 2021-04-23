@@ -71,6 +71,11 @@ select:hover {
   text-align: center;
 }
 
+.bucket-link {
+  margin: 5rem;
+  font-size: 2rem;
+}
+
 .App {
   
 }
