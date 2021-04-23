@@ -134,7 +134,7 @@ class Dropdown extends Component {
 				
 				<div class="bucket-link">
 					{
-						this.state.show? <span>Goto <a href={this.state.bucket_url}>{this.state.bucket_url}</a> to upload csv data</span> : null
+						this.state.show? <span>Goto <a href={this.state.bucket_url} target="_blank">{this.state.bucket_url}</a> to upload csv data</span> : null
 					}
           		</div>
 			</div>
