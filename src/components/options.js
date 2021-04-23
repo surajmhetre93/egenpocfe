@@ -71,7 +71,7 @@ class Dropdown extends Component {
 			  "content-type": "application/json"
 			}
 		}).then((response) => {
-			this.setState({bucket_url: response.data[0]});
+			this.setState({bucket_url: response.data['url']});
 			this.setState({show:true})
 		}).catch((error) => {
 			console.log(error)
