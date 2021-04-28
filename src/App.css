@@ -76,6 +76,10 @@ select:hover {
   font-size: 2rem;
 }
 
+.switch {
+  float: right;
+}
+
 .App {
   
 }

@@ -35,7 +35,7 @@ class Dropdown extends Component {
             domains: [ 
                 {name: 'Healthcare', kinds: ['Electronic health records', 'Administrative', 'Claims', 'Patient / Disease registries', 'Health surveys', 'Clinical trials']},
                 {name: 'Retail', kinds: ['Point-of-Sale', 'Loyalty Card', 'Market Research', 'Syndicated']},
-                {name: 'Finance', kinds: ['Market Research', 'Claims data', 'Sales']}
+				{name: 'Finance', kinds: ['Market Research', 'Claims data', 'Sales']}
             ]
         })
 
@@ -54,7 +54,11 @@ class Dropdown extends Component {
 
 	changeTypeOfData(event) {
 		this.setState({selectedIndustry: event.target.value});
-		this.setState({kinds : this.state.domains.find(stat => stat.name === event.target.value).kinds});
+		if (event.target.value === '--Choose Industry--') {
+			this.setState({kinds : []})
+		} else {
+			this.setState({kinds : this.state.domains.find(stat => stat.name === event.target.value).kinds});
+		}
 	} 
 
 	generateConfig() {
@@ -82,7 +86,7 @@ class Dropdown extends Component {
 		return (
 			<div id="container">
 				<h2>Choose your process flow</h2>
-	
+				<br/>
 				<div class="custom-select">
 					<select placeholder="Cloud Platform" value={this.state.selectedCloud} onChange={this.changeCloud} class="form-select">
 						<option>--Choose cloud platform--</option>
@@ -129,7 +133,7 @@ class Dropdown extends Component {
 				</div>
 
 				<div>
-					<Button onClick = {this.generateConfig.bind(this)} variant="primary" className="custom-btn">Submit Process Flow</Button>
+					<Button onClick = {this.generateConfig.bind(this)} variant="primary" className="custom-btn">Ship to Cloud</Button>
 				</div>
 				
 				<div class="bucket-link">
