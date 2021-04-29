@@ -1,16 +1,29 @@
+import React, {useState} from "react"
 import './App.css';
 import Dropdown from './components/options'
 import SwitchExample from './components/switchmode'
+import styled, {ThemeProvider} from 'styled-components'
+import {lightTheme, darkTheme, GlobalStyles} from './components/themes'
 
-import logo_egen from './static/egen-logo-mustard.svg';
-
+const StyledApp = styled.div``
 
 function App() {
+  const [theme, setTheme] =  useState("dark");
+
+  const themeToggler = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+  }
+
   return (
-    <div className="App">
+    <ThemeProvider theme = {theme === "light" ? lightTheme : darkTheme}>
+      <GlobalStyles />
+      <StyledApp>
         <SwitchExample></SwitchExample>
         <Dropdown></Dropdown>
-    </div>
+      </StyledApp>
+
+    </ThemeProvider>
+    
   );
 }
 
