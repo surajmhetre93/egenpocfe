@@ -69,7 +69,8 @@ class Dropdown extends Component {
 			data: {
 				"project_id":"cparkar-project-310718",
 				"location":"US",
-				"bucket_name":"egen-poc-bucket"
+				"bucket_name":"egen-poc-bucket",
+				"db_name": "egen_poc_dataset"
 			},
 			headers: { 
 			  "content-type": "application/json"
