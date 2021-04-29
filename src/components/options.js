@@ -1,9 +1,8 @@
-import React, { Component, useState } from 'react'
+import React, { Component } from 'react'
 import { Button } from 'reactstrap'
 import axios from 'axios';
 import { API_URL } from "../constants"
 import '../App.css';
-import ReactDOM from 'react-dom';
 
 class Dropdown extends Component {
 	constructor(props) {
@@ -88,8 +87,8 @@ class Dropdown extends Component {
 			<div id="container">
 				<h2>Choose your process flow</h2>
 				<br/>
-				<div class="custom-select">
-					<select placeholder="Cloud Platform" value={this.state.selectedCloud} onChange={this.changeCloud} class="form-select">
+				<div className="custom-select">
+					<select placeholder="Cloud Platform" value={this.state.selectedCloud} onChange={this.changeCloud} className="form-select">
 						<option>--Choose cloud platform--</option>
 						{this.state.clouds.map((e, key) => {
 							return <option key={key}>{e}</option>;
@@ -97,7 +96,7 @@ class Dropdown extends Component {
 					</select>
 				</div>
 
-				<div class="custom-select">
+				<div className="custom-select">
 					<select placeholder="Industry" value={this.state.selectedIndustry} onChange={this.changeTypeOfData}>
 						<option>--Choose Industry--</option>
 						{this.state.domains.map((e, key) => {
@@ -106,7 +105,7 @@ class Dropdown extends Component {
 					</select>
 				</div>
 				
-				<div class="custom-select">
+				<div className="custom-select">
 					<select placeholder="Type of data">
 						<option>--Choose type of data--</option>
 						{this.state.kinds.map((e, key) => {
@@ -115,7 +114,7 @@ class Dropdown extends Component {
 					</select>
 				</div>
 
-                <div class="custom-select">
+                <div className="custom-select">
 					<select placeholder="Type of ingestion">
 						<option>--Choose type of ingestion--</option>
 						{this.state.ingestion_type.map((e, key) => {
@@ -124,7 +123,7 @@ class Dropdown extends Component {
 					</select>
 				</div>
 
-				<div class="custom-select">
+				<div className="custom-select">
 					<select placeholder="Type of File">
 						<option>--Choose type of file--</option>
 						{this.state.file_type.map((e, key) => {
@@ -137,7 +136,7 @@ class Dropdown extends Component {
 					<Button onClick = {this.generateConfig.bind(this)} variant="primary" className="custom-btn">Ship to Cloud</Button>
 				</div>
 				
-				<div class="bucket-link">
+				<div className="bucket-link">
 					{
 						this.state.show? <span>Goto <a href={this.state.bucket_url} target="_blank">{this.state.bucket_url}</a> to upload csv data</span> : null
 					}

@@ -8,14 +8,14 @@ header {
   height: 56px
 }
 
-body {
+/*body {
   color: azure;
   background-color: #000000;
   background-image: url("./static/header-2.jpeg");
-}
+}*/
 
 a {
-  color: rgb(80, 185, 255);
+  /*color: rgb(80, 185, 255);*/
   text-decoration: underline;
 }
 
@@ -25,17 +25,18 @@ footer {
   bottom: 0;
   width: 100%;
   overflow: hidden;
-  color: white;
-  background-color: #282c34;
+  /*color: white;
+  background-color: #282c34;*/
 }
 
-.logo-background {
-  height: 5rem;
-  background-color: azure;
+span {
+  font-size: large;
+  vertical-align: super;
+  margin: 1rem;
 }
 
 select {
-  background-color: black;
+  /*background-color: black;*/
   opacity: 0.7;
   margin: 0.35rem;
   width: 50rem;
@@ -46,23 +47,23 @@ select {
 }
 
 select:hover {
-  border-color: white;
+  /*border-color: white;*/
   font-weight: bolder;
   border-width: 2px;
 }
 
 .custom-btn {
-  background-color: black;
+  /*background-color: black;*/
   margin: 2rem;
   border-radius: 3px;
-  border-color: chartreuse;
+  /*border-color: chartreuse;*/
   width: 50rem;
   height: 5rem;
   font-size: 2rem;
 }
 
 .custom-btn:hover {
-  color: white;
+  /*color: white;*/
   font-weight: bolder;
   border-width: 2px;
 }
