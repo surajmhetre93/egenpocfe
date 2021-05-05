@@ -44,6 +44,7 @@ export const GlobalStyles = createGlobalStyle`
     
     select {
         background-color: ${props => props.theme.select_back_color};
+        color: ${props => props.theme.fontColor};
     }
 
     select:hover {

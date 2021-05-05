@@ -35,7 +35,7 @@ export class App extends Component {
       <ThemeProvider theme = {this.state.theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles />
       <StyledApp>
-        <div className="container">
+        <div id = "switchdiv" className="container-fluid">
             <div className="row">
                 <div className="col-md-12">
                     <label className = "switch">

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { API_URL } from "../constants"
 import '../App.css';
 
+
 class Dropdown extends Component {
 	constructor(props) {
 		super(props);
@@ -19,7 +20,8 @@ class Dropdown extends Component {
 			selectedCloud : '--Choose cloud platform--',
 			selectedIndustry : '--Choose Industry--',
 			bucket_url: '',
-			show:false
+			show:false,
+			spinner:false
 		};
 		this.changeCloud = this.changeCloud.bind(this);
 		this.changeTypeOfData = this.changeTypeOfData.bind(this);
@@ -61,7 +63,7 @@ class Dropdown extends Component {
 	} 
 
 	generateConfig() {
-	
+		this.setState({spinner:true})
 		axios({
 			method: 'post',
 			url: API_URL,
@@ -76,6 +78,7 @@ class Dropdown extends Component {
 			}
 		}).then((response) => {
 			this.setState({bucket_url: response.data['url']});
+			this.setState({spinner:false})
 			this.setState({show:true})
 		}).catch((error) => {
 			console.log(error)
@@ -87,7 +90,7 @@ class Dropdown extends Component {
 			<div id="container">
 				<h2>Choose your process flow</h2>
 				<br/>
-				<div className="custom-select">
+				<div>
 					<select placeholder="Cloud Platform" value={this.state.selectedCloud} onChange={this.changeCloud} className="form-select">
 						<option>--Choose cloud platform--</option>
 						{this.state.clouds.map((e, key) => {
@@ -96,7 +99,7 @@ class Dropdown extends Component {
 					</select>
 				</div>
 
-				<div className="custom-select">
+				<div>
 					<select placeholder="Industry" value={this.state.selectedIndustry} onChange={this.changeTypeOfData}>
 						<option>--Choose Industry--</option>
 						{this.state.domains.map((e, key) => {
@@ -105,7 +108,7 @@ class Dropdown extends Component {
 					</select>
 				</div>
 				
-				<div className="custom-select">
+				<div>
 					<select placeholder="Type of data">
 						<option>--Choose type of data--</option>
 						{this.state.kinds.map((e, key) => {
@@ -114,7 +117,7 @@ class Dropdown extends Component {
 					</select>
 				</div>
 
-                <div className="custom-select">
+                <div>
 					<select placeholder="Type of ingestion">
 						<option>--Choose type of ingestion--</option>
 						{this.state.ingestion_type.map((e, key) => {
@@ -123,7 +126,7 @@ class Dropdown extends Component {
 					</select>
 				</div>
 
-				<div className="custom-select">
+				<div>
 					<select placeholder="Type of File">
 						<option>--Choose type of file--</option>
 						{this.state.file_type.map((e, key) => {
@@ -134,6 +137,16 @@ class Dropdown extends Component {
 
 				<div>
 					<Button onClick = {this.generateConfig.bind(this)} variant="primary" className="custom-btn">Ship to Cloud</Button>
+				</div>
+
+				<div>
+					{
+						this.state.spinner? 
+						<div className="spinner-border text-primary" role="status">
+							<span className="sr-only">Loading...</span>
+						</div> : null
+					}
+					
 				</div>
 				
 				<div className="bucket-link">
